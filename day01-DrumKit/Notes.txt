@@ -1,0 +1,93 @@
+CSS
+1, ############ transform: scale(1.1); ############
+
+transform: scale(x, y); (transform: 改变形态)
+=> element gets bigger or smaller by the ratio of x on horizontal and y on vertical
+- when x === y, only write one number is ok => transform: scale(x);
+- when x === y === 1, no change from its original size!
+=> when > 1, get bigger; < 1, get smaller!
+- it changes size based on its centre point(以图形的中心为原点，进行图形的大小缩放！)
+
+
+
+2, ############ transition: all 0.07s; ############
+
+The transition CSS property is a shorthand property for 'transition-property', 'transition-duration', 'transition-timing-function', and 'transition-delay'.
+
+Transitions enable you to define the transition between two states of an element. Different states may be defined using pseudo-classes like :hover or :active or dynamically set using JavaScript.
+e.g.
+1) /* property name | duration */
+transition: margin-right 4s;
+
+2) /* Apply to all changed properties */
+transition: all 0.5s ease-out;
+
+3)
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  -webkit-transition: width 5s ease-out; /* For Safari 3.1 to 6.0 */
+  transition: width 5s ease-out; (transition: 过渡 / ease-out: 匀速)
+}
+
+div:hover {
+  width: 300px;
+}
+=> on hover over the div, its width will change from 100px to 300px using 5 seconds, with ease-out effect
+
+The transition property is specified as one or more single-property transitions, separated by commas.
+
+
+
+3, ############ box-shadow: 0 0 10px red; ############
+Syntax:
+/* offset-x | offset-y | blur-radius | spread-radius | color */
+box-shadow: 12px 12px 10px 1px rgba(0, 255, 255, .2);
+
+
+
+4, ############ <kbd> tag in HTML ############
+
+=> represents a span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device.
+
+
+
+5, ############ 'data-' attributes ('data-xxx')############
+
+data attributes were brought about in HTML when people just want to make their own attributes besides those standard tag attributes like 'src', 'class'!
+e.g. if you wanna make up something like a key, you have to put it behind a data-xxx, i.e. 'data-key'
+
+In this exercise, we use the data-key attribute to hook up <div> element along with the <audio> element having the same data-key attribute, link them 1:1
+
+=> so when someone hits the key on their keyboard, we will find the audio element and play it!
+Also, we'll find the <div> having the same data-key and add a .playing class to animate it.
+
+
+
+6, ############ key-code!!! ############
+
+http://keycode.info/
+each key has a unique code associated with it! it's cross browser, cross languages!
+
+
+
+7, ############ text-transform ############
+
+text-transform: none;
+text-transform: capitalize;
+text-transform: uppercase;
+text-transform: lowercase;
+text-transform: full-width;
+text-transform: full-size-kana;
+
+
+
+8, ############ <audio> tag in HTML ############
+
+The <audio> tag is new in HTML5.
+The <audio> tag defines sound, such as music or other audio streams.
+
+Currently, there are 3 supported file formats for the <audio> element: MP3, WAV, and OGG:
+
+src:	URL	Specifies the URL of the audio file
