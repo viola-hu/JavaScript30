@@ -91,3 +91,15 @@ The <audio> tag defines sound, such as music or other audio streams.
 Currently, there are 3 supported file formats for the <audio> element: MP3, WAV, and OGG:
 
 src:	URL	Specifies the URL of the audio file
+
+
+################################# Take Away from this Session ##################################
+1, key events, e.g. keydown
+
+2, play audio,
+e.g.
+audio.currentTime = 0; // rewind to the start
+audio.play(); // play the audio
+
+3, listen for 'transitionend' event
+similarly, if using animations, can listen for 'animationend' event
