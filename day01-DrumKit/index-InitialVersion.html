@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-
     <div class="keys">
       <div data-key="65" class="key">
         <kbd>A</kbd>
@@ -65,15 +64,15 @@
     <audio data-key="76" src="sounds/tink.wav"></audio>
 
     <script>
-      // listen for a key-up event
+      // listen for a key-down event
       // 1, get whatever element that you're listening for, like input, div, text-area
       // in our case, we listen on the window and add an event listener
       // the event we are listening here is called 'keydown'
       // then a callback function which will give us the event (parameters)
       // the event is just the object full of data describing what happened
       window.addEventListener('keydown', (e) => {
-        // console.log(e);
-        // console.log('e.keyCode:', e.keyCode);
+        console.log('event', e);
+        console.log('e.keyCode:', e.keyCode);
 
 
         // ####### Learning: Web APIs #######
@@ -105,7 +104,7 @@
         const audio = document.querySelector(`audio[data-key='${e.keyCode}']`);
         // console.log('audio:', audio);
         // can be 'null' if keyCode is not included in any audio data-key attribute
-        // if 'null', then return function immediately
+        // if 'null', then return function immediately, do nothing!
         if(!audio) return; // stop the function from running all together
 
         // 2, since we found the <audio> element, we can play it!
@@ -144,12 +143,12 @@
       });
 
       function removeTransition(e) {
-        // console.log('removeTransition event', e);
+        console.log('removeTransition event', e);
         // it will show 6x transitions have been done
         // we pick up the longest transition e.g. 'transform' - get bigger
         // if it's other transition done, do nothing,
         // until 'transform' is finished, continue the below code
-        if(e.propertyName !== "transform") return; // skip it if it's not a transform done
+        if(e.propertyName !== "transform") return; // skip it/ do nothing if it's not a transform done
         // console.log('e.propertyName:', e.propertyName);
 
         console.log('this:', this); // 'this' is the initial key (div element) that's attached with the event listener which triggered the removeTransition callback function!
@@ -164,11 +163,11 @@
       // so use document.querySelectorAll() => an array of all matching elements
       const keys = document.querySelectorAll('.key');
 
-      // 2) we want to liste for an event called 'transitionend' on each of the matching elements
+      // 2) we want to listen for an event called 'transitionend' on each of the matching elements
       // the event listener cannot be attached to an array of all matching elements, must be one specific element
       // => keys.addEventListener('transitionend') => WRONG!!!
-      // => need to loop through every SINGLE element inside the array and then attach the event listener to each!
-      keys.forEach(key => key.addEventListener('transitionend', removeTransition)); //removeTransition is a call back in the event listener, and we need to define separately
+      // => need to loop through every SINGLE element inside the array and then attach the event listener to each of them!
+      keys.forEach(key => key.addEventListener('transitionend', removeTransition)); //removeTransition is a callback in the event listener, and we need to define separately
     </script>
   </body>
 </html>

@@ -50,6 +50,7 @@ box-shadow: 12px 12px 10px 1px rgba(0, 255, 255, .2);
 4, ############ <kbd> tag in HTML ############
 
 => represents a span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device.
+=> The <kbd> tag defines a keyboard input. The tag is used when it is needed to display text that the user should enter into their keyboard (for any number of reasons). The content of the tag in the browser is displayed in a monospaced font (all characters have the same width). -by w3docs
 
 
 
