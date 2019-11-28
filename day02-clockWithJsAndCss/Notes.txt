@@ -1,0 +1,12 @@
+<What TO DO>
+The CSS clock takes in the current time from JavaScript, and it's going to update the hands(sec, min, hr) on the clock based on the current time.
+
+
+1, https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin
+transform-origin CSS property sets the origin for an element's transformations.
+The transform origin is the point around which a transformation is applied!
+By default, the origin of a transform is center. (which is also the initial issue of CSS transform property for the clock hand element)
+
+=> here in this clock example, transform-origin is where the clock hand is going to do the transform/rotation off of.
+e.g.
+transform-origin: 100%; means both X and Y are going to move to its 100% further position, while if not specifying transform-origin, by default it's always 50% - as said, 'By default, the origin of a transform is center.'

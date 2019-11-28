@@ -62,6 +62,21 @@
       background: black;
       position: absolute;
       top: 50%;
+      /* 1 issue: to make the rotation pivot point be the very right end of clock hands,
+      as by default it's always the middle/center of rorating elements -> by default, transform-origin: 50% */
+      transform-origin: 100%;
+
+      /* 2 issue: to make the clock hands divs start from being vertical 12:00,
+      as divs go from left to right as horizontal,
+      => simply rotate the origin position of hands 90deg as default */
+      transform: rotate(90deg);
+
+      /* 3 issue: once roration happens, the clock hand moves to the end position/degree immediately, thus we apply a bit of transition to set duration time，so that it appears to be rorating across the clock face
+      => at the end, it's going to be every second, the clock hand will tick itself around */
+      transition: all 0.05s;
+
+      /* 4 issue: to make the clock hands more real when ticking */
+      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
     }
 
   </style>
@@ -72,13 +87,3 @@
   </script>
 </body>
 </html>
-
-
-<!-- Notes
-1, transform-origin CSS property sets the origin for an element's transformations.
-The transform origin is the point around which a transformation is applied!
-By default, the origin of a transform is center.
-https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin
-
-
- -->
