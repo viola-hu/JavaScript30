@@ -1,0 +1,105 @@
+https://www.cnblogs.com/zhaosijia----1234/p/9389455.html
+
+< css3中translate、transform和translation，以及动画animation>
+
+example:
+
+元素整体居中：
+
+.box{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    width:50px;
+
+    height:50px;
+
+    transform:translate(-50%,-50%);
+
+    background:gray;
+
+}
+
+
+
+1.translate:移动，是transform的一个方法
+
+通过translate()方法，元素从其当前位置移动，根据给定的left(x坐标)和top(y坐标)位置参数：
+
+用法transform: translate(50px, 100px);
+-ms-transform: translate(50px,100px);
+-webkit-transform: translate(50px,100px);
+-o-transform: translate(50px,100px);
+-moz-transform: translate(50px,100px);
+
+
+
+2. transform:变形，改变
+css3中主要包括：
+在css3中transform主要包括以下几种： 旋转rotate、扭曲skew、缩放scale和移动translate以及矩阵变形matrix。
+旋转：rotate() 顺时针旋转给定的角度，允许负值rotate(30deg)
+扭曲：skew()元素翻转给定的角度，根据给定的水平线(x轴)和垂直线（Y轴）参数：skew(30deg,20deg)
+缩放：scale()放大或缩小，根据给定的宽度（X轴）和高度（Y轴）参数：scale(2,4)
+移动：translate()平移，传进x,,y值，代表沿x轴和y轴平移的距离
+所有的2D转换方法组合在一起： matrix()旋转、缩放移动以及倾斜元素
+matrix(scale.x,scale.y,translate.x,translate.y)
+改变起点位置 transform-origin: bottom left;
+
+transform: rotate旋转|scale缩放|skew扭曲|translate移动|matrix矩阵变形；
+综合起来使用：transform: 30deg 1.5 30deg 20deg 100px 200px;//需要有空格隔开
+
+
+
+3. transition: 允许css属性值在一定的时间区间内平滑的过渡。（过渡动画）
+
+transition作用是指定了某一个属性（如width、left、transform等）在两个值之间如何过渡。
+
+如果某一个元素指定了Transition,那么当其某个属性改变的时候就会按照Transition指定的方式进行过渡，动画就这么产生了。
+
+
+transition主要包含四个属性值：
+(1)  执行变换的属性：transition-property;
+(2)  变换延续的时间：transition-duration;
+(3)  在延续时间段，变换的速率变化：transition-timing-function  //例：平缓进入、先快后慢；
+(4)  变换延迟时间： transition-delay
+需要事件的触发，例如单击、获取焦点、失去焦点等。
+语法：transition: property  duration  timing-function  delay;
+例如：transition: width  2s  ease  0s;
+
+
+
+4.Animation
+
+Animation也是通过指定某一个属性（如width、left、transform等）在两个值之间如何过渡来实现动画的。
+CSS3动画：
+定义动画：
+    @keyframes 自定义动画名称 {
+         from{}
+         to{}
+     }
+
+ @keyframes 自定义动画名称 {
+         0%{}
+         100%{}
+ }
+调用动画
+
+调用动画
+animation: 动画名称 动画时间 动画速度 动画延迟 动画次数 动画方向 动画播放状态 动画完成时的状态
+动画名称: animation-name
+动画时间 animation-duration
+动画速度 animation-timing-function: linear（匀速变化） ease（低俗开始，然后加快，快结束的时候再放慢） ease-in（低速开始） ease-out（低速结束） ease-in-out（低俗开始，低速结束） steps()
+动画延迟 animation-delay
+动画次数 animation-iteration-count: infinite
+动画方向 animation-direction:
+动画播放状态: animation-play-state: running pause
+动画完成时的状态: animation-fill-mode:forwards backwards
+
+
+与Transition不同的是：
+1.Animation可以通过keyframe显示控制当前帧的属性值，而Transition只能隐式来进行（不能指定每帧的属性值），所以相对而言Animation的功能更加灵活。
+2. Animation通过模拟属性值改变来实现动画，动画结束之后元素的属性没有变化；而Transition确实改变了元素的属性值，动画结束之后元素的属性发生了变化；这一点，这在实际应用中会产生很大的区别。
