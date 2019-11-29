@@ -7,6 +7,6 @@ transform-origin CSS property sets the origin for an element's transformations.
 The transform origin is the point around which a transformation is applied!
 By default, the origin of a transform is center. (which is also the initial issue of CSS transform property for the clock hand element)
 
-=> here in this clock example, transform-origin is where the clock hand is going to do the transform/rotation off of.
+=> here in this clock example, transform-origin is where the clock hand is going to do the transform/rotation off of.（旋转支点）
 e.g.
 transform-origin: 100%; means both X and Y are going to move to its 100% further position, while if not specifying transform-origin, by default it's always 50% - as said, 'By default, the origin of a transform is center.'

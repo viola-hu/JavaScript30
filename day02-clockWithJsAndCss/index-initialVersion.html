@@ -68,20 +68,29 @@
 
       /* 2 issue: to make the clock hands divs start from being vertical 12:00,
       as divs go from left to right as horizontal,
-      => simply rotate the origin position of hands 90deg as default */
+      => simply rotate the original position of hands 90deg as default,
+      also, rotating direction is by default around the clock（顺时针） */
       transform: rotate(90deg);
 
       /* 3 issue: once roration happens, the clock hand moves to the end position/degree immediately, thus we apply a bit of transition to set duration time，so that it appears to be rorating across the clock face
       => at the end, it's going to be every second, the clock hand will tick itself around */
       transition: all 0.05s;
 
-      /* 4 issue: to make the clock hands more real when ticking */
+      /* 4 issue: to make the clock hands look more realistic when ticking */
       transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
     }
 
   </style>
 
   <script>
+
+  // 5: use JS to update time on the clock
+  // 1) start from second hand which ticks most often
+  function setTime(){
+    // console.log('Hi');
+  }
+  // need to update time / setTime every second
+  setInterval(setTime, 1000);
 
 
   </script>
