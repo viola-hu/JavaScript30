@@ -10,3 +10,12 @@ By default, the origin of a transform is center. (which is also the initial issu
 => here in this clock example, transform-origin is where the clock hand is going to do the transform/rotation off of.（旋转支点）
 e.g.
 transform-origin: 100%; means both X and Y are going to move to its 100% further position, while if not specifying transform-origin, by default it's always 50% - as said, 'By default, the origin of a transform is center.'
+
+
+
+2, new Date();
+=> Fri Nov 29 2019 16:37:02 GMT+1100 (Australian Eastern Daylight Time)
+
+new Date().getMonth()
+=> 10
+:返回值是 0（一月） 到 11（十二月） 之间的一个整数
