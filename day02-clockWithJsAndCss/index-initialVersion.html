@@ -108,7 +108,7 @@
       minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
 
       // ###### Hours ######
-      let hours = now.getHours();
+      const hours = now.getHours();
       // console.log('hours', hours);
       // if (hours > 12) hours -= 12; // no need of this, as 17/12 小数部分等于 5/12 即可。整数部分仅是n个360度， 没差！
       // console.log('hours', hours);
@@ -121,7 +121,7 @@
     // need to update time / setTime every second
     setInterval(setTime, 1000);
 
-    // trigger the first tick, before setInterval 1s
+    // manually call the function for the first tick on clock face, instead of waiting for 1s first and then calling the function by setInterval
     setTime();
 
   </script>
