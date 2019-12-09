@@ -81,6 +81,7 @@
     }
   </style>
 
+
   <script>
     const secondHand = document.querySelector('.second-hand');
     const minuteHand = document.querySelector('.min-hand');
@@ -96,16 +97,30 @@
       // ###### Seconds ######
       const seconds = now.getSeconds(); // to get the seconds of the current minute
       // console.log(seconds);
+
       const secondsDegrees = (seconds / 60) * 360 + 90;
-      // go grab the secondHand element and add style  transform:rotate
-      // console.log('secondHand', secondHand);
+
+      // when the seconds come to 59, it's not going to be 60 next,
+      // instead it's going to be 0,
+      // so the degree is going to be from almost 360 backward to 0, instead of becoming 360 and keeping moving forward
+      // and that degree changes with the transition effect (0.05s) which makes the hand quickly flash backward on the clockface, from almost 360 to 0 degree
+      // to avoid this, add an if-statement to temporarily remove the transition when it comes to 0 seconds
+      if (seconds === 0) {
+        secondHand.style.transition = 'all 0s';
+      } else {
+        secondHand.style.transition = 'all 0.05s';
+        secondHand.style.transitionTimingFunction = 'cubic-bezier(0.1, 2.7, 0.58, 1)';
+      }
+
       secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
 
       // ###### Minutes ######
       const minutes = now.getMinutes(); // to get the minutes
       // console.log('minutes', minutes);
       const minutesDegrees = (minutes / 60) * 360 + 90 + (seconds / 60) * 6;
       minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
+      
 
       // ###### Hours ######
       const hours = now.getHours();
@@ -113,8 +128,8 @@
       // if (hours > 12) hours -= 12; // no need of this, as 17/12 小数部分等于 5/12 即可。整数部分仅是n个360度， 没差！
       // console.log('hours', hours);
 
-      // 时针，除了整点小时外，表面上还根据分，在两个整点的30度里(360/12)缓慢移动！
-      const hoursDegrees = (hours / 12) * 360 + 90 + (minutes / 60) * 30;
+      // 时针，除了整点小时外，表面上还根据分，在两个整点的30度里(360/12)缓慢移动！算的再精确点可以加上秒的影响, 30度里/60分钟/60秒
+      const hoursDegrees = (hours / 12) * 360 + 90 + (minutes / 60) * 30 + (seconds / 60) * (30 / 60);
       hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
     }
 
