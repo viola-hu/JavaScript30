@@ -21,6 +21,20 @@
   <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
 
   <style>
+    /* here, :root === <html> */
+    :root {
+      /* 6, CSS variable names start with dash-dash: --
+      similarly, SASS variable names start with dollar: $ */
+      --base: #ffc600;
+      --spacing: 10px;
+      --blur: 10px;
+    }
+
+    /* we've defined the above CSS variables, and we are going to use them as below */
+    img {
+      /* 7, when you want to use a variable in CSS, use 'var()' and pass in the variable name with --: var(variable_name) */
+      padding: var(--spacing);
+    }
 
     /*
       misc styles, nothing to do with CSS variables
@@ -60,6 +74,8 @@ CSS variables can be updated with JS:
 meaning that when you update a variable in CSS, everywhere on the page that that variable is referenced will update itself.
 VS
 With SASS, you define them at the compile time and then it gets compiled and you cannot change it.
+=>
+The way that CSS variables work is that you declare them on some sort of element, or in our case, we're going to declare it on root, which is sort of the highest level that you can get, very similar to declaring it on the <html> element. And here's where we are going to set our default values for those variables.
 
 
 
