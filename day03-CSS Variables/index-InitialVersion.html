@@ -30,9 +30,9 @@
       --blur: 10px;
     }
 
-    /* we've defined the above CSS variables, and we are going to use them as below */
+    /* we've defined CSS variables above, and we are going to use them as below */
     img {
-      /* 7, when you want to use a variable in CSS, use 'var()' and pass in the variable name with --: var(variable_name) */
+      /* 7, when you want to use a predefined variable in CSS, use 'var()' and pass in the variable name with --: var(variable_name) */
       padding: var(--spacing);
     }
 
@@ -70,7 +70,7 @@
 ####### NOTE #######
 
 WHAT TO LEARN:
-CSS variables can be updated with JS:
+CSS variables can be updated with/by JS:
 meaning that when you update a variable in CSS, everywhere on the page that that variable is referenced will update itself.
 VS
 With SASS, you define them at the compile time and then it gets compiled and you cannot change it.
